@@ -1,4 +1,6 @@
-import { env } from "@/env";
+const env = {
+  NEXT_PUBLIC_BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL || "http://localhost:5000",
+};
 
 type Json = Record<string, unknown>;
 

@@ -35,16 +35,16 @@ export default function Home() {
   return (
     <div className="p-8">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-500 to-secondary-600 text-white p-16 rounded-xl text-center mb-12 shadow-lg">
+      <section className="bg-gradient-to-r from-primary-500 to-secondary-500 text-gray-800 p-16 rounded-xl text-center mb-12 shadow-lg">
         <h1 className="text-5xl font-bold mb-4">
           💊 Welcome to MediStore
         </h1>
-        <p className="text-xl mb-8 opacity-90">
+        <p className="text-xl mb-8">
           Your Trusted Online Medicine Shop - OTC Medicines Delivered to Your Door
         </p>
         <Link
           href="/shop"
-          className="inline-block bg-white text-primary-600 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-md"
+          className="inline-block bg-white text-primary-800 px-8 py-3 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors shadow-md border-2 border-primary-700"
         >
           Browse Medicines
         </Link>
@@ -59,11 +59,11 @@ export default function Home() {
               <Link
                 key={category.id}
                 href={`/shop?categoryId=${category.id}`}
-                className="card p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border-2 hover:border-primary-500"
+                className="card p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border-2 border-gray-200 hover:border-primary-600"
               >
                 <h3 className="text-xl font-semibold mb-2">{category.name}</h3>
                 {category.description && (
-                  <p className="text-sm text-gray-600 dark:text-gray-400">{category.description}</p>
+                  <p className="text-sm text-gray-600">{category.description}</p>
                 )}
               </Link>
             ))}
@@ -92,12 +92,12 @@ export default function Home() {
                   </div>
                 )}
                 <div className="p-4">
-                  <h3 className="text-lg font-semibold mb-2 line-clamp-2">{medicine.name}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                  <h3 className="text-lg font-semibold mb-2 line-clamp-2 text-gray-800">{medicine.name}</h3>
+                  <p className="text-sm text-gray-600 mb-2">
                     {medicine.manufacturer}
                   </p>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="text-xl font-bold text-success-600">
+                    <span className="text-xl font-bold text-primary-700">
                       ৳{medicine.price}
                     </span>
                     {medicine.ratingAvg > 0 && (

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./providers";
 import { auth } from "@/auth/session";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MediStore",
-  description: "MediStore web frontend",
+  title: "MediStore - Your Trusted Online Medicine Shop",
+  description: "Browse and purchase OTC medicines online with MediStore",
 };
 
 export default async function RootLayout({
@@ -26,9 +28,13 @@ export default async function RootLayout({
 }>) {
   const sessionPromise = auth();
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Providers session={await sessionPromise}>{children}</Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${geistSans.variable} ${geistMono.variable} flex flex-col min-h-screen`} suppressHydrationWarning>
+        <Providers session={await sessionPromise}>
+          <Navbar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
