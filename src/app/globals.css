@@ -1,42 +1,123 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@import "tailwindcss";
+
+@theme {
+  /* Soft Mint Green - Primary */
+  --color-primary-50: #f7fcf9;
+  --color-primary-100: #ecf4e8;
+  --color-primary-200: #d9ead1;
+  --color-primary-300: #cbf3bb;
+  --color-primary-400: #cbf3bb;
+  --color-primary-500: #cbf3bb;
+  --color-primary-600: #abe7b2;
+  --color-primary-700: #8dd99a;
+  --color-primary-800: #6fc882;
+  --color-primary-900: #51b66a;
+
+  /* Sage Green - Secondary */
+  --color-secondary-50: #f5f9f7;
+  --color-secondary-100: #e8f2ed;
+  --color-secondary-200: #d1e5db;
+  --color-secondary-300: #bad8c9;
+  --color-secondary-400: #abe7b2;
+  --color-secondary-500: #abe7b2;
+  --color-secondary-600: #8dd99a;
+  --color-secondary-700: #6fc882;
+  --color-secondary-800: #51b66a;
+  --color-secondary-900: #33a452;
+
+  /* Soft Blue - Accent */
+  --color-accent-50: #f0f7fa;
+  --color-accent-100: #e1eff5;
+  --color-accent-200: #c3dfeb;
+  --color-accent-300: #a5cfe1;
+  --color-accent-400: #93bfc7;
+  --color-accent-500: #93bfc7;
+  --color-accent-600: #75a9b1;
+  --color-accent-700: #5d8a92;
+  --color-accent-800: #456b73;
+  --color-accent-900: #2d4c54;
+
+  /* Success - Keep green theme */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #abe7b2;
+  --color-success-600: #8dd99a;
+  --color-success-700: #6fc882;
+  --color-success-800: #51b66a;
+  --color-success-900: #33a452;
+
+  /* Danger - Soft red */
+  --color-danger-50: #fef2f2;
+  --color-danger-100: #fee2e2;
+  --color-danger-200: #fecaca;
+  --color-danger-300: #fca5a5;
+  --color-danger-400: #f87171;
+  --color-danger-500: #ef4444;
+  --color-danger-600: #dc2626;
+  --color-danger-700: #b91c1c;
+  --color-danger-800: #991b1b;
+  --color-danger-900: #7f1d1d;
+
+  /* Warning - Soft yellow/amber */
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-200: #fde68a;
+  --color-warning-300: #fcd34d;
+  --color-warning-400: #fbbf24;
+  --color-warning-500: #f59e0b;
+  --color-warning-600: #d97706;
+  --color-warning-700: #b45309;
+  --color-warning-800: #92400e;
+  --color-warning-900: #78350f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    box-sizing: border-box;
   }
-}
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #ecf4e8;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+  .card {
+    @apply bg-white rounded-lg shadow-sm border border-gray-200 p-6;
+  }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+  }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  .btn-primary {
+    @apply bg-primary-500 text-gray-800 hover:bg-primary-600;
+  }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+  .btn-secondary {
+    @apply bg-secondary-500 text-gray-800 hover:bg-secondary-600;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary-500 text-primary-700 hover:bg-primary-50;
+  }
+
+  .input {
+    @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+  }
+
+  .badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-success-100 text-success-800;
+  }
+
+  .badge-danger {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-danger-100 text-danger-800;
+  }
+
+  .badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-warning-100 text-warning-800;
   }
 }
